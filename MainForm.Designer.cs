@@ -379,7 +379,6 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(551, 259);
             panel4.TabIndex = 14;
-            panel4.Paint += this.panel4_Paint;
             // 
             // label8
             // 
