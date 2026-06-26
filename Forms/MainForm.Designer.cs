@@ -37,9 +37,9 @@
             textNumAcmP = new TextBox();
             label21 = new Label();
             panel5 = new Panel();
-            textBox1 = new TextBox();
-            label20 = new Label();
             txtNumDnaRUleKey = new TextBox();
+            label20 = new Label();
+            txtNumLambdaKey = new TextBox();
             label19 = new Label();
             txtNumAcmIter = new TextBox();
             label18 = new Label();
@@ -184,9 +184,9 @@
             // panel5
             // 
             panel5.BackColor = Color.White;
-            panel5.Controls.Add(textBox1);
-            panel5.Controls.Add(label20);
             panel5.Controls.Add(txtNumDnaRUleKey);
+            panel5.Controls.Add(label20);
+            panel5.Controls.Add(txtNumLambdaKey);
             panel5.Controls.Add(label19);
             panel5.Controls.Add(txtNumAcmIter);
             panel5.Controls.Add(label18);
@@ -202,14 +202,14 @@
             panel5.Size = new Size(482, 266);
             panel5.TabIndex = 22;
             // 
-            // textBox1
+            // txtNumDnaRUleKey
             // 
-            textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.Location = new Point(69, 120);
-            textBox1.Margin = new Padding(3, 2, 3, 2);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(153, 23);
-            textBox1.TabIndex = 21;
+            txtNumDnaRUleKey.BorderStyle = BorderStyle.FixedSingle;
+            txtNumDnaRUleKey.Location = new Point(69, 120);
+            txtNumDnaRUleKey.Margin = new Padding(3, 2, 3, 2);
+            txtNumDnaRUleKey.Name = "txtNumDnaRUleKey";
+            txtNumDnaRUleKey.Size = new Size(153, 23);
+            txtNumDnaRUleKey.TabIndex = 21;
             // 
             // label20
             // 
@@ -222,14 +222,14 @@
             label20.TabIndex = 20;
             label20.Text = "DNA rule \r\n(key)";
             // 
-            // txtNumDnaRUleKey
+            // txtNumLambdaKey
             // 
-            txtNumDnaRUleKey.BorderStyle = BorderStyle.FixedSingle;
-            txtNumDnaRUleKey.Location = new Point(314, 77);
-            txtNumDnaRUleKey.Margin = new Padding(3, 2, 3, 2);
-            txtNumDnaRUleKey.Name = "txtNumDnaRUleKey";
-            txtNumDnaRUleKey.Size = new Size(152, 23);
-            txtNumDnaRUleKey.TabIndex = 19;
+            txtNumLambdaKey.BorderStyle = BorderStyle.FixedSingle;
+            txtNumLambdaKey.Location = new Point(314, 77);
+            txtNumLambdaKey.Margin = new Padding(3, 2, 3, 2);
+            txtNumLambdaKey.Name = "txtNumLambdaKey";
+            txtNumLambdaKey.Size = new Size(152, 23);
+            txtNumLambdaKey.TabIndex = 19;
             // 
             // label19
             // 
@@ -674,6 +674,7 @@
             btnSaveImage.TabIndex = 5;
             btnSaveImage.Text = "Save Image";
             btnSaveImage.UseVisualStyleBackColor = false;
+            btnSaveImage.Click += btnSaveImage_Click;
             // 
             // panel7
             // 
@@ -700,6 +701,7 @@
             btnLoadKey.TabIndex = 29;
             btnLoadKey.Text = "Load Key";
             btnLoadKey.UseVisualStyleBackColor = false;
+            btnLoadKey.Click += btnLoadKey_Click;
             // 
             // btnSaveKey
             // 
@@ -712,6 +714,7 @@
             btnSaveKey.TabIndex = 28;
             btnSaveKey.Text = "Save Key";
             btnSaveKey.UseVisualStyleBackColor = false;
+            btnSaveKey.Click += btnSaveKey_Click;
             // 
             // btnReset
             // 
@@ -724,6 +727,7 @@
             btnReset.TabIndex = 27;
             btnReset.Text = "Reset";
             btnReset.UseVisualStyleBackColor = false;
+            btnReset.Click += btnReset_Click;
             // 
             // btnAnalysis
             // 
@@ -736,6 +740,7 @@
             btnAnalysis.TabIndex = 26;
             btnAnalysis.Text = "Analysis";
             btnAnalysis.UseVisualStyleBackColor = false;
+            btnAnalysis.Click += btnAnalysis_Click;
             // 
             // btnDecrypt
             // 
@@ -748,6 +753,7 @@
             btnDecrypt.TabIndex = 25;
             btnDecrypt.Text = "Decrypt";
             btnDecrypt.UseVisualStyleBackColor = false;
+            btnDecrypt.Click += btnDecrypt_Click;
             // 
             // btnEncrypt
             // 
@@ -760,6 +766,7 @@
             btnEncrypt.TabIndex = 24;
             btnEncrypt.Text = "Encrypt";
             btnEncrypt.UseVisualStyleBackColor = false;
+            btnEncrypt.Click += btnEncrypt_Click;
             // 
             // panel8
             // 
@@ -832,7 +839,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             ClientSize = new Size(1373, 946);
-            ControlBox = false;
             Controls.Add(panel8);
             Controls.Add(panel7);
             Controls.Add(btnSaveImage);
@@ -915,7 +921,7 @@
         private Label label18;
         private TextBox txtNumACMQ;
         private Label label17;
-        private TextBox txtNumDnaRUleKey;
+        private TextBox txtNumLambdaKey;
         private Label label19;
         private Button btnSaveImage;
         private Panel panel7;
@@ -925,7 +931,7 @@
         private Button btnEncrypt;
         private Button btnLoadKey;
         private Button btnSaveKey;
-        private TextBox textBox1;
+        private TextBox txtNumDnaRUleKey;
         private Label label20;
         private Label lblreport;
         private Panel panel8;
