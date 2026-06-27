@@ -24,8 +24,8 @@ namespace HyperCrypt
                         using (var bmp = new Bitmap(ofd.FileName))
                         {
                             int origW = bmp.Width, origH = bmp.Height;
-                            originalImage = ImageProcessingService.LoadAsSquareGrayscale(bmp);
-                            picInput.Image = ImageProcessingService.ByteArrayToBitmap(originalImage);
+                            picInput.Image = new Bitmap(bmp);   
+                            originalImage = ImageProcessingService.LoadAsSquareGrayscale(bmp); 
 
                             resultImage = null;
                             pictureBox1.Image = null;
@@ -39,7 +39,7 @@ namespace HyperCrypt
                             histInput = CryptoCore.Histogram(originalImage);
                             pcbHistoInput.Invalidate();
 
-                            lblreport.Text = "Gambar dimuat. Pastikan secret key (x0,y0,z0,w0) sudah benar, lalu klik Encrypt.";
+                            lblreport.Text = "The image has been loaded. Ensure that the secret key (x₀, y₀, z₀, w₀) is correct, then click Encrypt.";
                         }
                        
 
@@ -47,7 +47,7 @@ namespace HyperCrypt
                         picInput.SizeMode = PictureBoxSizeMode.Zoom;
 
                         FileInfo fi = new FileInfo(ofd.FileName);
-                        lblimgInfo.Text = $"{picInput.Image.Width} x {picInput.Image.Height} | {fi.Length / 1024} kb | grayscale";
+                        lblimgInfo.Text = $"{picInput.Image.Width} x {picInput.Image.Height} | {fi.Length / 1024} kb";
                     }
                     catch (Exception ex)
                     {
@@ -113,6 +113,11 @@ namespace HyperCrypt
             try
             {
                 var t0 = DateTime.Now;
+                //var cipher = CryptoCore.Encrypt(originalImage, key);
+                //var plain = CryptoCore.Decrypt(cipher, key);
+                //double mse = CryptoCore.Mse(originalImage, plain);
+                //MessageBox.Show($"MSE = {mse}");
+                //return;   // hentikan dulu
                 resultImage = CryptoCore.Encrypt(originalImage, key);
                 double elapsed = (DateTime.Now - t0).TotalSeconds;
 
@@ -136,6 +141,7 @@ namespace HyperCrypt
         private void DecryptImage()
         {
             byte[,] source = resultImage ?? originalImage;
+            
             if (source == null)
             {
                 MessageBox.Show("Belum ada apa pun untuk didekripsi.", "Kosong", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -147,6 +153,9 @@ namespace HyperCrypt
                 return;
             }
 
+            //var testCipher = CryptoCore.Encrypt(originalImage, key);
+            //double mseCipher = CryptoCore.Mse(resultImage, testCipher);
+            //MessageBox.Show($"Cipher MSE = {mseCipher}");
             Cursor = Cursors.WaitCursor;
             try
             {
